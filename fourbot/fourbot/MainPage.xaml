@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:custom="clr-namespace:fourbot.ViewModels.Controls"
+             xmlns:bind="clr-namespace:fourbot.ViewModels.Models"
+             x:Class="fourbot.MainPage">
+    <ContentPage.BindingContext>
+        <bind:LoginModel/>
+    </ContentPage.BindingContext>
+
+    <Grid>
+       
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" BackgroundColor="#108383">
+            <Label Text="4BOT.RU" TextColor="White" FontAttributes="Bold" FontSize="30" HorizontalOptions="Center" VerticalOptions="Center">
+                
+            </Label>
+        </Grid>
+
+
+        <Grid Grid.Row="1" Background="White" Margin="0,10,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2.3*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2.3*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="0.5*" />
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="0.5*" />
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="3*"/>
+
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Text="Имя пользователя:" TextColor="#676C6D" Margin="20,0,0,0" FontFamily="Euclid Circular B"/>
+
+
+            <Grid Grid.Row="1" BackgroundColor="Transparent" Margin="20,0,30,0"  HorizontalOptions="FillAndExpand" >
+                <Frame BorderColor="LightGray" HasShadow="True" Padding="10,0,0,0"  BackgroundColor="Transparent"   CornerRadius="55"  >
+
+                    <custom:CustomEntry  BackgroundColor="Transparent"  FontSize="16"   Opacity="0.5" VerticalOptions="FillAndExpand" 
+                               HorizontalOptions="FillAndExpand" Text="{Binding Login}"  />
+
+
+
+                </Frame>
+
+
+            </Grid>
+
+            <Label Grid.Row="2" Text="Пароль:" TextColor="#676C6D" Margin="20,0,0,0" FontFamily="Euclid Circular B"/>
+
+
+            <Grid Grid.Row="3" BackgroundColor="Transparent"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="20,0,30,0" >
+                <Frame BorderColor="LightGray"  BackgroundColor="Transparent" Padding="10,0,10,0" CornerRadius="55"  >
+                    <Grid>
+                        <custom:CustomEntry  BackgroundColor="Transparent "  FontSize="16" IsPassword="True"  Opacity="0.5" VerticalOptions="FillAndExpand" 
+                               HorizontalOptions="FillAndExpand" Text="{Binding Pass}" />
+
+
+
+                       </Grid>
+
+                </Frame>
+
+
+            </Grid>
+
+
+            <Grid Grid.Row="5"  >
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Button Text="Войти в систему" Command="{Binding LoginCommand}" Grid.Column="0" Margin="20,0,0,0" HorizontalOptions="Start" Background="White" TextColor="#676C6D" FontSize="12" x:Name="LoginButton"/>
+                <Button Text="Забыл пароль" Grid.Column="1" Margin="0,0,30,0" HorizontalOptions="End" Background="White" TextColor="#676C6D" FontSize="12"/>
+            </Grid>
+            <Grid Grid.Row="10" BackgroundColor="Transparent" >
+                <Label Text="Не зарегистрирован?" Margin="20,0,0,0" TextColor="#676C6D"  FontSize="16" VerticalOptions="Center"  FontFamily="Euclid Circular B"/>
+                <Button Text="Присоединиться" Command="{Binding RegCommand}"  FontAttributes="Bold" Margin="0,0,30,0" TextColor="#5030E5" x:Name="RegistrationButton"  VerticalOptions="Center"  HorizontalOptions="End" Background="White"  FontSize="12"/>
+
+            </Grid>
+
+        </Grid>
+        <Grid Grid.Row="2" BackgroundColor="#0A817F"   >
+            <Button TextTransform="None" Text="Техническая поддержка"   TextColor="White" Background="Transparent" FontSize="12" HorizontalOptions="Center"/>
+        </Grid>
+
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:bind="clr-namespace:fourbot.ViewModels.Models"
+              xmlns:custom="clr-namespace:fourbot.ViewModels.Controls"
+             x:Class="fourbot.Views.AddExchangePage">
+    <ContentPage.BindingContext>
+        <bind:AddExchangeModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid  HorizontalOptions="Fill">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="250"/>
+                <RowDefinition Height="*"/>
+
+            </Grid.RowDefinitions>
+            <Frame Grid.Row="0" Padding="10"  BackgroundColor="#0A817F" CornerRadius="5">
+                <Grid>
+                    <Image Source="Background.png" ScaleX="2" ScaleY="2"/>
+                    <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="2*"/>
+
+                        </Grid.RowDefinitions>
+                        <Grid BackgroundColor="Transparent" Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <Label Text="Доброе утро" x:Name="WelcomeLabel"  HorizontalOptions="StartAndExpand"  TextColor="White" FontSize="18" CharacterSpacing="0.6"  VerticalOptions="StartAndExpand" FontFamily="Euclid Circular B"/>
+                                <Label Text="Доброе утро" x:Name="WelcomeDateLabel" HorizontalOptions="Start" TextColor="#CDE0E2"  FontSize="12" CharacterSpacing="0.6" VerticalOptions="End" FontFamily="Euclid Circular B"/>
+
+
+                            </Grid>
+
+
+
+                            <ImageButton Grid.Column="1 " CornerRadius="50"    VerticalOptions="Start"  WidthRequest="60"  HorizontalOptions="End"   Source="people.png"/>
+
+
+
+
+                        </Grid>
+                        <StackLayout Grid.Row="1">
+                            <Button WidthRequest="250" Text="Подключить пакет" HeightRequest="40"  FontSize="15" TextColor="White" BackgroundColor="#076765">
+
+                            </Button>
+
+                            <Button WidthRequest="250" Text="Позиции" Command="{Binding GoMainPage}" FontSize="15" HeightRequest="40" TextColor="White" BackgroundColor="#076765">
+
+                            </Button>
+                            <Button WidthRequest="250" FontSize="15" Text="Выйти" Command="{Binding LogoutCommand}"  TextColor="White" BackgroundColor="#076765">
+
+
+                            </Button>
+
+                        </StackLayout>
+                    </Grid>
+                </Grid>
+            </Frame>
+            <Grid Grid.Row="1" BackgroundColor="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="2.3*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="2.3*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="2.3*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="0.5*" />
+                    <RowDefinition Height="1.5*"/>
+                    <RowDefinition Height="0.5*" />
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="3*"/>
+
+                </Grid.RowDefinitions>
+                <Picker Grid.Row="1" Title="Выберите биржу"  ItemsSource="{Binding ExchangeList}" Margin="20,0,30,0" SelectedItem="{Binding Exchange, Mode=TwoWay}" />
+                <Label Grid.Row="2" Text="API public:" TextColor="#676C6D" Margin="20,0,0,0" FontFamily="Euclid Circular B"/>
+
+
+                <Grid Grid.Row="3" BackgroundColor="Transparent" Margin="20,0,30,0"  HorizontalOptions="FillAndExpand" >
+                    <Frame BorderColor="LightGray" HasShadow="True" Padding="10,0,0,0"  BackgroundColor="Transparent"   CornerRadius="55"  >
+
+                        <custom:CustomEntry  BackgroundColor="Transparent"  FontSize="16"   Opacity="0.5" VerticalOptions="FillAndExpand" 
+                               HorizontalOptions="FillAndExpand" Text="{Binding Api}"  />
+
+
+
+                    </Frame>
+
+
+                </Grid>
+
+                <Label Grid.Row="4" Text="API secret:" TextColor="#676C6D" Margin="20,0,0,0" FontFamily="Euclid Circular B"/>
+
+
+                <Grid Grid.Row="5" BackgroundColor="Transparent"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="20,0,30,0" >
+                    <Frame BorderColor="LightGray"  BackgroundColor="Transparent" Padding="10,0,10,0" CornerRadius="55"  >
+                        <Grid>
+                            <custom:CustomEntry  BackgroundColor="White"  FontSize="16"  Opacity="0.5" VerticalOptions="FillAndExpand" 
+                               HorizontalOptions="FillAndExpand" Text="{Binding Secret}" />
+
+
+
+                        </Grid>
+
+                    </Frame>
+
+
+                </Grid>
+
+                <Grid Grid.Row="7"  >
+
+
+                    <Button Text="Сохранить" Grid.Column="0" Margin="20,0,0,0" HorizontalOptions="Center"  Background="White" TextColor="#676C6D" FontSize="12" Command="{Binding SaveCommand}"/>
+                </Grid>
+
+
+
+            </Grid>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
